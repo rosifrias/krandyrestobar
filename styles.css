@@ -1,0 +1,264 @@
+/* ================================
+   Reset y General
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+}
+
+/* ================================
+   Header
+================================ */
+header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #ffcc00;
+    padding: 15px 20px;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+header .logo img {
+    height: 60px;
+    width: auto;
+}
+
+#header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+#header-info p, #header-info a {
+    font-size: 14px;
+    color: #333;
+}
+
+#header-info a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#header-info a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   Floating Cart
+================================ */
+#floating-cart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #00c851;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+#floating-cart:hover {
+    transform: scale(1.05);
+}
+
+/* ================================
+   Títulos
+================================ */
+h1 {
+    font-size: 32px;
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 25px 0 15px;
+}
+
+/* ================================
+   Menú de Productos con Grid
+================================ */
+ul#menu, ul.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    justify-items: center;
+}
+
+li {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Imagen de producto */
+.product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Nombre y descripción */
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0 5px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    min-height: 50px; /* mantiene alineación uniforme */
+}
+
+/* ================================
+   Controles de cantidad y botones
+================================ */
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.quantity-control input {
+    width: 45px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Botón eliminar */
+.button-remove {
+    background-color: #dc3545;
+    padding: 5px 10px;
+}
+
+.button-remove:hover {
+    background-color: #c82333;
+}
+
+/* ================================
+   Carrito
+================================ */
+#cart {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#total {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#sendOrder {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #00c851;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#sendOrder:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* ================================
+   Responsivo
+================================ */
+@media (max-width: 900px) {
+    li {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    li {
+        width: 100%;
+    }
+
+    .product-image {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .quantity-control {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
