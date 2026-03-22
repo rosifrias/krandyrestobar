@@ -35,6 +35,22 @@ function addToCart(item, precio, cantidad = 1) {
     renderCarrito();
     actualizarBotonPedido();
     actualizarCarritoFlotante();
+
+    mostrarNotificacion(item + " agregado al carrito 🛒");
+}
+
+function mostrarNotificacion(mensaje) {
+
+    const noti = document.getElementById("notificacion");
+
+    if (!noti) return;
+
+    noti.textContent = mensaje;
+    noti.classList.add("mostrar");
+
+    setTimeout(() => {
+        noti.classList.remove("mostrar");
+    }, 2000);
 }
 
 function removeFromCart(index) {
@@ -145,4 +161,25 @@ document.getElementById('floating-cart').addEventListener('click', () => {
             window.scrollBy(0, 300); // Ajusta este valor si aún no alcanza el final
         }, 600);
     }
+
+
+});
+
+document.getElementById("buscador").addEventListener("input", function () {
+
+    const texto = this.value.toLowerCase();
+    const productos = document.querySelectorAll("li");
+
+    productos.forEach(producto => {
+
+        const nombreElemento = producto.querySelector(".product-name");
+
+        if (!nombreElemento) return;
+
+        const nombre = nombreElemento.textContent.toLowerCase();
+
+        producto.style.display = nombre.includes(texto) ? "flex" : "none";
+
+    });
+
 });
